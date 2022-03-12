@@ -1,0 +1,84 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "create build directory",
+            "type": "shell",
+            "command": "cmake -E make_directory build",
+            "problemMatcher": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "make makefile(Release)",
+            "type": "shell",
+            "command": "cmake -E chdir build cmake ..",
+            "problemMatcher": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "make makefile(Debug)",
+            "type": "shell",
+            "command": "cmake -E chdir build cmake -DCMAKE_BUILD_TYPE=Debug ..",
+            "problemMatcher": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "compile",
+            "type": "shell",
+            "command": "time -p cmake --build build --parallel -j4",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "remove build directory",
+            "type": "shell",
+            "command": "rm -r build",
+            "problemMatcher": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Rebuild project(Debug)",
+            "type": "shell",
+            "command": "rm -r build; mkdir build; time -p cmake -E chdir build/ cmake -DCMAKE_BUILD_TYPE=Debug ..; time -p cmake --build build/",
+            "problemMatcher": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Re-configure Project(Debug)",
+            "type": "shell",
+            "command": "rm -r build; mkdir build; time -p cmake -E chdir build/ cmake -DCMAKE_BUILD_TYPE=Debug ..",
+            "problemMatcher": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Rebuild project(Release)",
+            "type": "shell",
+            "command": "rm -r build; mkdir build; time -p cmake -E chdir build/ cmake -DCMAKE_BUILD_TYPE=Release ..; time -p cmake --build build/",
+            "problemMatcher": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+	]
+}
