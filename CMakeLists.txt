@@ -17,5 +17,5 @@ add_subdirectory(src/Application)
 
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_CXX_COMPILER "g++")
+set(CMAKE_CXX_COMPILER "gcc")
 set(CMAKE_RULE_MESSAGES ON)
